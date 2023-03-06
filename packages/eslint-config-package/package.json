@@ -11,5 +11,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-config-turbo": "latest",
     "prettier": "^2.8.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
