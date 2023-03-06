@@ -25,6 +25,8 @@
   "homepage": "https://github.com/qqww08/dynamic-bottom-sheet#readme",
   "devDependencies": {
     "turbo": "^1.8.3",
+    "eslint": "^8.35.0",
+    "eslint-config-package": "*",
     "typescript": "^4.9.5"
   },
   "packageManager": "yarn@3.4.1"
