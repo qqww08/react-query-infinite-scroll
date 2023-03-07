@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel index.html -p 3000"
+    "dev": "parcel index.html -p 3000"
   },
   "author": "",
   "license": "ISC",

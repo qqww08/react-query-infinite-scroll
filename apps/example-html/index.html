@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shadow-DOM</title>
+    <link href="../../packages/core/src/css/index.css" rel="stylesheet">
 
 </head>
 
 <body>
-
-    <div id="bottom-sheet"></div>
-    <script src="../../packages/core/dist/index.js"></script>
+<div class="bottom-sheet"></div>
+    <script src="../../packages/core/dist/index.js" ></script>
     <script>
-         new BottomSheet("bottom-sheet")
+        new BottomSheet({portal:false})
     </script>
+
 </body>
 
 </html>
