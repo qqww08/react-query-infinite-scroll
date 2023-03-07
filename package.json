@@ -2,16 +2,15 @@
   "name": "dynamic-bottom-sheet",
   "version": "0.0.1",
   "description": "",
-  "main": "./packages/core/dist/index.js",
+  "main": "./packages/core/dist/index.cjs.js",
   "module": "./packages/core/dist/index.esm.js",
   "types": "./packages/core/dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
       "types": "./packages/core/dist/index.d.ts",
-      "import": "./packages/core/dist/index.mjs",
       "module": "./packages/core/dist/index.esm.js",
-      "require": "./packages/core/dist/index.js"
+      "require": "./packages/core/dist/index.cjs.js"
     }
   },
   "files": [
@@ -40,6 +39,7 @@
   },
   "homepage": "https://github.com/qqww08/dynamic-bottom-sheet#readme",
   "devDependencies": {
+    "bunchee": "^2.2.0",
     "eslint": "^8.35.0",
     "eslint-config-package": "*",
     "husky": "^8.0.3",
@@ -52,8 +52,5 @@
     "*.{ts,tsx}": [
       "eslint --fix --cache"
     ]
-  },
-  "dependencies": {
-    "bunchee": "^2.2.0"
   }
 }

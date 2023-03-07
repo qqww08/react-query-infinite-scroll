@@ -4,7 +4,12 @@
   "emitDeclarationOnly": true,
   "declarationMap": true,
   "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
   },
-  "include": ["src"]
+  "include": ["index.ts"]
 }

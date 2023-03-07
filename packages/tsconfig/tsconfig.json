@@ -6,7 +6,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
