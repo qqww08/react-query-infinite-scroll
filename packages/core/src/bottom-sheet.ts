@@ -7,6 +7,7 @@ function asd() {
 
 export function BottomSheet(option: BottomSheetOption) {
   render(option);
+
   return {
     option,
   };

@@ -1,25 +1,33 @@
-import { BottomSheetOption } from "../types";
+import type { BottomSheetOption } from "../types";
+import { createElement } from "./createElement";
+import { typeGuard } from "./typeGuard";
 
-const className = "bottom-sheet";
-
-const template = `
-    <div class="${className}-dimmer"></div>
-    <div class="${className}-container">
-        <div class="${className}-header"></div>
-        <div class="${className}-body"></div>
-    </div>
-`;
+const id = "bottom-sheet";
 
 export const render = (option: BottomSheetOption) => {
-  const { portal } = option;
+  const { portal, target } = option;
+  const isElString = typeGuard.isString(target);
+  const bodyChild = isElString ? document.querySelector(`.${target}`) : target;
+
+  const dimmer = createElement("div", { id: `${id}-dimmer` });
+  const header = createElement("div", { id: `${id}-header` });
+  const body = createElement("div", { id: `${id}-body` });
+  const container = createElement("div", {
+    id: `${id}-container`,
+  });
+  const main = createElement("div", { id });
+
+  const styles = document.createElement("style");
+  document.head.append(styles);
+  body.append(bodyChild as HTMLElement);
+  container.append(header, body);
+
   if (portal) {
-    const main = document.createElement("div");
-    console.log(template);
-    main.className = className;
-    main.innerHTML = template;
-    document.body.appendChild(main);
+    main.append(dimmer, container);
+
+    document.body.append(main);
   } else {
-    const main = document.querySelector(".bottom-sheet") as HTMLDivElement;
-    main.innerHTML = template;
+    const sheetEl = document.querySelector("#bottom-sheet") as HTMLDivElement;
+    sheetEl.append(dimmer, container);
   }
 };
