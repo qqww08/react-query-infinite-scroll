@@ -1,4 +1,4 @@
-import { render } from "./shared";
+import { render } from "./utils";
 import type { BottomSheetOption } from "./types";
 
 function asd() {
@@ -7,4 +7,7 @@ function asd() {
 
 export function BottomSheet(option: BottomSheetOption) {
   render(option);
+  return {
+    option,
+  };
 }
