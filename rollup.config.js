@@ -5,6 +5,10 @@ import terser from "@rollup/plugin-terser";
 
 import pkg from "./package.json";
 
+/** @type {import('rollup').RollupOptions}
+ *  @param {import('rollup').InputPluginOption} plugins
+ *  @param {import('rollup').OutputOptions} output
+ * */
 export default ({ plugins = [], output = [], ...rest }) => {
   return {
     input: "src/index.ts",
