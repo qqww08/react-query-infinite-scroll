@@ -1,33 +1,55 @@
-import type { BottomSheetOption } from "../types";
+import type { BottomSheetOption, RenderReturn } from "../types";
 import { createElement } from "./createElement";
 import { typeGuard } from "./typeGuard";
 
-const className = "bottom-sheet";
-
-export const render = (option: BottomSheetOption) => {
+let temp: HTMLCollection | null = null;
+export const render = (option: BottomSheetOption): RenderReturn => {
   const { portal, target } = option;
-  const isElString = typeGuard.isString(target);
-  const bodyChild = isElString ? document.querySelector(`.${target}`) : target;
-
+  const isString = typeGuard.isString(target);
+  const className = isString ? target : "bottom-sheet";
+  const sheetEl = document.querySelector(".bottom-sheet") as HTMLDivElement;
   const dimmer = createElement("div", { className: `${className}-dimmer` });
-  const header = createElement("div", { className: `${className}-header` });
-  const body = createElement("div", { className: `${className}-body` });
   const container = createElement("div", {
     className: `${className}-container`,
   });
-  const main = createElement("div", { className });
-  if (bodyChild) {
-    body.append(bodyChild as HTMLElement);
-  }
-  container.append(header, body);
+  sheetEl.remove();
+  temp = sheetEl.children;
 
-  if (portal) {
-    main.append(dimmer, container);
+  const show = () => {
+    const main = createElement("div", { className });
+    main.classList.add("visible");
+    dimmer.addEventListener("click", hide, { once: true });
 
-    document.body.append(main);
-  } else {
+    if (portal) {
+      main.append(dimmer, container);
+      if (temp) {
+        Array.from(temp).forEach((ele: any) => {
+          container.append(ele);
+        });
+      }
+
+      document.body.append(main);
+    }
+  };
+  const hide = () => {
     const sheetEl = document.querySelector(".bottom-sheet") as HTMLDivElement;
-    body.append(sheetEl.children[0]);
-    sheetEl.append(dimmer, container);
-  }
+    sheetEl.classList.add("remove");
+
+    container.addEventListener(
+      "animationend",
+      () => {
+        const sheetEl = document.querySelector(
+          ".bottom-sheet"
+        ) as HTMLDivElement;
+        temp = sheetEl.children;
+        sheetEl.remove();
+      },
+      { once: true }
+    );
+  };
+
+  return {
+    show,
+    hide,
+  };
 };

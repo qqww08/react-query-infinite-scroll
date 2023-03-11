@@ -9,17 +9,19 @@
 </head>
 
 <body>
-    <div>
-        <div class="bottom-sheet">
-            <div class="bottom-sheet-contents">
-                <div>asd</div>
-            </div>
+    <div class="bottom-sheet">
+        <div class="bottom-sheet-contents">
+            <div>asd</div>
+            <button onclick="sheet.hide()">닫기</button>
+        </div>
+        <div class="bottom-sheet-contents">
+            <div>asd</div>
         </div>
     </div>
-
+    <button onclick="sheet.show()">Click</button>
     <script src="../../packages/core/dist/index.js"></script>
     <script>
-       const sheet =  new BottomSheet({portal: false})
+       const sheet = new BottomSheet()
        console.log(sheet)
     </script>
 

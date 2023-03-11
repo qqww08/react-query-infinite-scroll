@@ -1,13 +1,39 @@
 .bottom-sheet{
+  display: none;
   position: absolute;
   inset:0;
   width: 100%;
   height: 100%;
 }
+.bottom-sheet.visible{
+  display: block;
+}
+.bottom-sheet.visible > .bottom-sheet-dimmer{
+  animation-name: dimmer-show;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+.bottom-sheet.visible > .bottom-sheet-container{
+  animation-name: container-show;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+.bottom-sheet.visible.remove > .bottom-sheet-dimmer{
+  animation-name: dimmer-close;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+.bottom-sheet.visible.remove > .bottom-sheet-container{
+  animation-name: container-close;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
 .bottom-sheet-dimmer{
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0);
+  opacity: 0;
   position: absolute;
   inset:0;
+  z-index: 100;
 }
 .bottom-sheet-container{
   position: absolute;
@@ -15,8 +41,39 @@
   left:0;
   width: 100%;
   background-color: #ffffff;
+  z-index: 101;
 }
-.bottom-sheet-header{
-  width: 100%;
-  min-height: 10px;
+
+@keyframes dimmer-show {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 0.4;
+  }
+}
+@keyframes container-show {
+  from{
+   transform: translateY(500px);
+  }
+  to{
+    transform: translateY(0);
+  }
+}
+
+@keyframes dimmer-close {
+  from{
+    opacity: 0.4;
+  }
+  to{
+    opacity: 0;
+  }
+}
+@keyframes container-close {
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(500px);
+  }
 }

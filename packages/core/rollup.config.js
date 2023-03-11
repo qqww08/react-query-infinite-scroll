@@ -1,2 +1,2 @@
 import rollupHelper from "../../rollup.config";
-export default rollupHelper();
+export default rollupHelper({ input: "src/index.ts" });

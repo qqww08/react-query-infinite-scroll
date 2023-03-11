@@ -1,14 +1,16 @@
 import { render } from "./utils";
-import type { BottomSheetOption } from "./types";
+import type { BottomSheetOption, BottomSheetReturn } from "./types";
 
-function asd() {
-  console.log(1);
-}
-
-export function BottomSheet(option: BottomSheetOption) {
-  render(option);
-
+export function BottomSheet(
+  option: BottomSheetOption = {
+    portal: true,
+    zIndex: 1000,
+    target: "bottom-sheet",
+  }
+): BottomSheetReturn {
+  const renderProps = render(option);
   return {
+    ...renderProps,
     option,
   };
 }
