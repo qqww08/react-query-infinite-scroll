@@ -24,7 +24,9 @@
     }
   },
   "files": [
-    "packages/core/dist/**/*.{js,d.ts,mjs}"
+    "packages/core/dist/**/*.{js,d.ts,mjs}",
+    "packages/react/dist/**/*.{js,d.ts,mjs}",
+    "packages/vue/dist/**/*.{js,d.ts,mjs}"
   ],
   "workspaces": [
     "apps/*",

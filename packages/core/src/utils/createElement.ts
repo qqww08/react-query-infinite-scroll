@@ -1,5 +1,5 @@
 interface Option {
-  id?: string;
+  className?: string;
 }
 export const createElement = <K extends keyof HTMLElementTagNameMap>(
   tagName: K,

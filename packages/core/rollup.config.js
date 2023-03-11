@@ -1,7 +1,6 @@
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
-import css from "rollup-plugin-import-css";
 import terser from "@rollup/plugin-terser";
 
 import pkg from "./package.json";
@@ -21,7 +20,6 @@ export default {
   plugins: [
     commonjs(),
     typescript(),
-    css(),
     terser(),
     babel({
       babelHelpers: "bundled",
