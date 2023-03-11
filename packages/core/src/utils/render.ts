@@ -1,47 +1,49 @@
 import type { BottomSheetOption, RenderReturn } from "../types";
 import { createElement } from "./createElement";
 import { typeGuard } from "./typeGuard";
+import { EventEmmit } from "../events";
+let visible = false;
 
 let temp: HTMLCollection | null = null;
 export const render = (option: BottomSheetOption): RenderReturn => {
-  const { portal, target } = option;
-  const isString = typeGuard.isString(target);
-  const className = isString ? target : "bottom-sheet";
-  const sheetEl = document.querySelector(".bottom-sheet") as HTMLDivElement;
-  const dimmer = createElement("div", { className: `${className}-dimmer` });
+  const { portal, className } = option;
+  const isString = typeGuard.isString(className);
+  const cn = isString ? className : "bottom-sheet";
+  const sheetEl = document.querySelector(`.${cn}`) as HTMLDivElement;
+  const dimmer = createElement("div", { className: `${cn}-dimmer` });
   const container = createElement("div", {
-    className: `${className}-container`,
+    className: `${cn}-container`,
   });
   sheetEl.remove();
   temp = sheetEl.children;
 
   const show = () => {
-    const main = createElement("div", { className });
+    const main = createElement("div", { className: cn });
     main.classList.add("visible");
     dimmer.addEventListener("click", hide, { once: true });
 
     if (portal) {
       main.append(dimmer, container);
       if (temp) {
-        Array.from(temp).forEach((ele: any) => {
+        Array.from(temp).forEach((ele) => {
           container.append(ele);
         });
       }
-
+      EventEmmit.emit("start", "start");
       document.body.append(main);
     }
   };
   const hide = () => {
-    const sheetEl = document.querySelector(".bottom-sheet") as HTMLDivElement;
+    const sheetEl = document.querySelector(`.${cn}`) as HTMLDivElement;
     sheetEl.classList.add("remove");
+    EventEmmit.emit("end", "end");
 
     container.addEventListener(
       "animationend",
       () => {
-        const sheetEl = document.querySelector(
-          ".bottom-sheet"
-        ) as HTMLDivElement;
+        const sheetEl = document.querySelector(`.${cn}`) as HTMLDivElement;
         temp = sheetEl.children;
+        visible = false;
         sheetEl.remove();
       },
       { once: true }
@@ -51,5 +53,6 @@ export const render = (option: BottomSheetOption): RenderReturn => {
   return {
     show,
     hide,
+    visible,
   };
 };

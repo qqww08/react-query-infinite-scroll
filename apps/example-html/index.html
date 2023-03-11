@@ -22,6 +22,10 @@
     <script src="../../packages/core/dist/index.js"></script>
     <script>
        const sheet = new BottomSheet()
+
+       sheet.event.on("end",(data)=>{
+           console.log(data)
+       })
        console.log(sheet)
     </script>
 
