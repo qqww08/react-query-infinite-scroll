@@ -1,7 +1,7 @@
 import type { BottomSheetOption, RenderReturn } from "../types";
 import { createElement } from "./createElement";
 import { typeGuard } from "./typeGuard";
-import { EventEmmit } from "../events";
+import { EventEmmit, mouseEvent } from "../events";
 let visible = false;
 
 let temp: HTMLCollection | null = null;
@@ -21,6 +21,7 @@ export const render = (option: BottomSheetOption): RenderReturn => {
     const main = createElement("div", { className: cn });
     main.classList.add("visible");
     dimmer.addEventListener("click", hide, { once: true });
+    EventEmmit.emit("start", "start");
 
     if (portal) {
       main.append(dimmer, container);
@@ -29,7 +30,8 @@ export const render = (option: BottomSheetOption): RenderReturn => {
           container.append(ele);
         });
       }
-      EventEmmit.emit("start", "start");
+      mouseEvent(container);
+
       document.body.append(main);
     }
   };
