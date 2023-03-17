@@ -1,6 +1,7 @@
 import { render } from "./utils";
 import type { BottomSheetOption, BottomSheetReturn } from "./types";
 import { EventEmmit } from "./events";
+import { hide, show } from "./shared";
 
 export function BottomSheet(
   option: BottomSheetOption = {
@@ -9,10 +10,11 @@ export function BottomSheet(
     className: "bottom-sheet",
   }
 ): BottomSheetReturn {
-  const renderProps = render(option);
+  render(option);
   return {
+    show,
+    hide,
     event: EventEmmit,
-    ...renderProps,
     option,
   };
 }

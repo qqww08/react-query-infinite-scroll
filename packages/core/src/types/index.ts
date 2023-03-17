@@ -1,5 +1,1 @@
-export type {
-  BottomSheetOption,
-  BottomSheetReturn,
-  RenderReturn,
-} from "./BottomSheetOption";
+export type { BottomSheetOption, BottomSheetReturn } from "./BottomSheetOption";
