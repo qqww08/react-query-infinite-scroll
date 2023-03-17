@@ -1,2 +1,2 @@
-export { mouseEvent } from "./mouseEvent";
+export { moveEvent } from "./moveEvent";
 export { EventEmmit } from "./eventEmmit";

@@ -1,21 +1,17 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-class Store {
-  constructor() {
-    this.state = {};
-    this.listeners = {};
-  }
-
-  getState(key) {
+interface Store {
+  state: { [key: string]: any };
+  getState: (key: string) => any;
+  setState: (key: string, newState: any) => void;
+}
+export const store: Store = {
+  state: {},
+  getState(key: string) {
     return this.state[key];
-  }
-
+  },
   setState(key, newState) {
     this.state[key] = {
       ...this.state[key],
       ...newState,
     };
-  }
-}
-
-export const store = new Store();
+  },
+};

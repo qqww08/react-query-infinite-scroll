@@ -11,22 +11,22 @@
 .bottom-sheet.visible > .bottom-sheet-dimmer{
   animation-name: dimmer-show;
   animation-duration: 300ms;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 .bottom-sheet.visible > .bottom-sheet-container{
   animation-name: container-show;
   animation-duration: 300ms;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 .bottom-sheet.visible.remove > .bottom-sheet-dimmer{
   animation-name: dimmer-close;
   animation-duration: 300ms;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 .bottom-sheet.visible.remove > .bottom-sheet-container{
   animation-name: container-close;
   animation-duration: 300ms;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 .bottom-sheet-dimmer{
   background-color: rgba(0, 0, 0);

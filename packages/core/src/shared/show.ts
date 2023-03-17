@@ -1,7 +1,6 @@
 import { createElement } from "../utils";
-import { EventEmmit, mouseEvent } from "../events";
+import { EventEmmit, moveEvent } from "../events";
 import { hide } from "./hide";
-import { share } from "./share";
 import { store } from "./store";
 export const show = (cn = "bottom-sheet") => {
   const children = store.getState("children") as HTMLCollection;
@@ -19,7 +18,7 @@ export const show = (cn = "bottom-sheet") => {
       container.append(ele);
     });
   }
-  mouseEvent(container);
+  moveEvent(container);
 
   document.body.append(main);
 };

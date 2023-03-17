@@ -1,5 +1,4 @@
 import { EventEmmit } from "../events";
-import { share } from "./share";
 
 export const hide = (cn = "bottom-sheet") => {
   const sheetEl = document.querySelector(`.${cn}`) as HTMLDivElement;
