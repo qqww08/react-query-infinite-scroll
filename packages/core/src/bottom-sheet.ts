@@ -11,9 +11,11 @@ export function BottomSheet(
   }
 ): BottomSheetReturn {
   render(option);
+  const handleShow = show(option.className);
+  const handleHide = hide(option.className);
   return {
-    show,
-    hide,
+    show: handleShow,
+    hide: handleHide,
     event: EventEmmit,
     option,
   };
