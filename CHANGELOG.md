@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/qqww08/react-query-infinite-scroll/compare/v1.0.3...v1.0.4) (2023-03-25)
+
+
+### Bug Fixes
+
+* update package.json peerDependencies ([e2ae338](https://github.com/qqww08/react-query-infinite-scroll/commit/e2ae33876021ae762e352909c90c506867c0a9a3))
+
 ## [1.0.3](https://github.com/qqww08/react-query-infinite-scroll/compare/v1.0.2...v1.0.3) (2023-03-25)
 
 
