@@ -33,11 +33,6 @@
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-terser": "^0.4.0",
-    "@rollup/plugin-typescript": "^11.0.0",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
@@ -45,7 +40,6 @@
     "bunchee": "^2.2.0",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-config-turbo": "latest",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
@@ -61,10 +55,11 @@
   },
   "peerDependencies": {
     "react": "^16.11.0 || ^17.0.0 || ^18.0.0",
-    "@tanstack/react-query": "^4.0.0"
+    "react-dom": "^16.11.0 || ^17.0.0 || ^18.0.0",
+    "@tanstack/react-query": "^4.0.0",
+    "react-query": "^3.0.0"
   },
   "dependencies": {
-    "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.4.3"
   },
   "plugins": [
