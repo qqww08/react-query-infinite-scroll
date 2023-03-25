@@ -20,7 +20,8 @@
   "scripts": {
     "start": "parcel ./example/index.html",
     "build": "bunchee ./src/index.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
