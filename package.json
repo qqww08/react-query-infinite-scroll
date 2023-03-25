@@ -23,10 +23,7 @@
     "prepare": "husky install",
     "semantic-release": "semantic-release"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/qqww08/react-query-infinite-scroll.git"
-  },
+  "repository": "github:qqww08/react-query-infinite-scroll",
   "keywords": [
     "react"
   ],
