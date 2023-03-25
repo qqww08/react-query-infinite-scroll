@@ -1,1 +1,0 @@
-export { useIntersection } from "./useIntersection";

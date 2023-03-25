@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import {
   QueryClient,
   QueryClientProvider,
   useInfiniteQuery,
-} from "@tanstack/react-query";
+} from "react-query";
 import { QueryInfiniteScroll } from "../src";
 const queryClient = new QueryClient();
 function Example() {
