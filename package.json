@@ -1,48 +1,33 @@
 {
-  "name": "dynamic-bottom-sheet",
+  "name": "react-query-infinite-scroll",
   "version": "0.0.1",
   "description": "",
-  "main": "./packages/core/dist/index.cjs.js",
-  "module": "./packages/core/dist/index.esm.js",
-  "types": "./packages/core/dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./packages/core/dist/index.d.ts",
-      "module": "./packages/core/dist/index.esm.js",
-      "require": "./packages/core/dist/index.cjs.js"
-    },
-    "./react": {
-      "types": "./packages/react/dist/index.d.ts",
-      "module": "./packages/react/dist/index.esm.js",
-      "require": "./packages/react/dist/index.cjs.js"
-    },
-    "./vue": {
-      "types": "./packages/vue/dist/index.d.ts",
-      "module": "./packages/vue/dist/index.esm.js",
-      "require": "./packages/vue/dist/index.cjs.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.esm.js",
+      "require": "./dist/index.js"
     }
   },
   "files": [
-    "packages/core/dist/**/*.{js,d.ts,mjs}",
-    "packages/react/dist/**/*.{js,d.ts,mjs}",
-    "packages/vue/dist/**/*.{js,d.ts,mjs}"
-  ],
-  "workspaces": [
-    "apps/*",
-    "packages/*"
+    "./dist/**/*.{js,d.ts,mjs}"
   ],
   "scripts": {
-    "prepare": "husky install",
-    "build": "turbo run build",
-    "dev": "turbo run dev"
+    "start": "parcel ./example/index.html",
+    "build": "bunchee ./src/index.ts",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/qqww08/dynamic-bottom-sheet.git"
   },
   "keywords": [
-    "bottom-sheet"
+    "react"
   ],
   "author": "qqww08",
   "license": "MIT",
@@ -51,6 +36,9 @@
   },
   "homepage": "https://github.com/qqww08/dynamic-bottom-sheet#readme",
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^19.0.5",
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
@@ -59,19 +47,57 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-terser": "^0.4.0",
     "@rollup/plugin-typescript": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
     "bunchee": "^2.2.0",
     "eslint": "^8.35.0",
-    "eslint-config-package": "*",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-turbo": "latest",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
+    "parcel": "^2.8.3",
+    "prettier": "^2.8.4",
+    "process": "^0.11.10",
     "rollup": "^3.18.0",
     "rollup-plugin-mjs-entry": "^0.1.1",
-    "turbo": "^1.8.3",
     "typescript": "^4.9.5"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix --cache"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16.11.0 || ^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^4.28.0",
+    "react": "^16.11.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.4.3"
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ],
+  "release": {
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "package-lock.json",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
     ]
   }
 }
