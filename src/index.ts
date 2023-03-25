@@ -1,1 +1,4 @@
-export { QueryInfiniteScroll } from "./QueryInfiniteScroll";
+export {
+  QueryInfiniteScroll,
+  type QueryInfiniteScrollProps,
+} from "./QueryInfiniteScroll";

@@ -22,7 +22,9 @@
   },
   "repository": "github:qqww08/react-query-infinite-scroll",
   "keywords": [
-    "react"
+    "react",
+    "react-query",
+    "infinite scroll"
   ],
   "author": "qqww08",
   "license": "MIT",
