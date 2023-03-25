@@ -32,10 +32,7 @@
   ],
   "author": "qqww08",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/qqww08/react-query-infinite-scroll/issues"
-  },
-  "homepage": "https://github.com/qqww08/react-query-infinite-scroll#readme",
+  "homepage": "https://github.com/qqww08/react-query-infinite-scroll",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
