@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/qqww08/react-query-infinite-scroll/compare/v1.0.0...v1.0.1) (2023-03-25)
+
+
+### Bug Fixes
+
+* update ([3cefd35](https://github.com/qqww08/react-query-infinite-scroll/commit/3cefd35012a9a8f5d34ff9b2e2cbc108b44f9d62))
+* update ([0b21ea8](https://github.com/qqww08/react-query-infinite-scroll/commit/0b21ea812dbeae83f4adce0787650b2584af314f))
+
 # 1.0.0 (2023-03-25)
 
 
