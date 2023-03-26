@@ -49,7 +49,8 @@ export interface QueryInfiniteScrollProps<TValue, TError> {
  *       <QueryInfiniteScroll
  *         query={query}
  *         loading={<div>loading</div>}
- *         onScreen={<div>loading</div>}
+ *         error={<div>error</div> || (error)=> <div>{error}</div>}
+ *         observer={<div>loading</div>}
  *       >
  *         {(res) => {
  *           return res?.data.map((data, idx) => <div key={idx}>{data._id}</div>);
