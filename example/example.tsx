@@ -5,7 +5,7 @@ import {
   QueryClientProvider,
   useInfiniteQuery,
 } from "react-query";
-import { QueryInfiniteScroll } from "../src";
+import { QueryInfiniteScroll, type QueryInfiniteScrollProps } from "../src";
 const queryClient = new QueryClient();
 function Example() {
   const query = useInfiniteQuery(
@@ -23,12 +23,14 @@ function Example() {
       },
     }
   );
+
   return (
     <div className="App">
       <QueryInfiniteScroll
         query={query}
         loading={<div>loading</div>}
-        onScreen={<div>loading</div>}
+        error={<div>loading</div>}
+        observer={<div>loading</div>}
       >
         {(res) => {
           return res?.data.map((data, idx) => <div key={idx}>{data._id}</div>);

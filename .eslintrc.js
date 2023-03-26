@@ -7,7 +7,6 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "eslint-plugin-prettier"],
   extends: [
-    "turbo",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "eslint-config-prettier",

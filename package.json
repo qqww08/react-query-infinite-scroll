@@ -30,11 +30,9 @@
   "license": "MIT",
   "homepage": "https://github.com/qqww08/react-query-infinite-scroll",
   "devDependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-typescript": "^7.21.0",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
+    "@testing-library/react-hooks": "^8.0.1",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "bunchee": "^2.2.0",
@@ -45,6 +43,7 @@
     "lint-staged": "^13.1.2",
     "parcel": "^2.8.3",
     "prettier": "^2.8.4",
+    "react-test-renderer": "^17.0.2",
     "semantic-release": "^21.0.0",
     "typescript": "^4.9.5"
   },
@@ -54,9 +53,9 @@
     ]
   },
   "peerDependencies": {
+    "@tanstack/react-query": "^4.0.0",
     "react": "^16.11.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.11.0 || ^17.0.0 || ^18.0.0",
-    "@tanstack/react-query": "^4.0.0",
     "react-query": "^3.0.0"
   },
   "dependencies": {
