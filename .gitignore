@@ -3,5 +3,5 @@
 node_modules
 .turbo
 dist
-
+.idea
 .eslintcache
