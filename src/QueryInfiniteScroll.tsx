@@ -1,13 +1,10 @@
-import React, {
-  type PropsWithChildren,
-  type ReactNode,
-  useEffect,
-} from "react";
+import React, { type ReactNode, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 import { type UseInfiniteQueryResult } from "@tanstack/react-query";
 
 export interface QueryInfiniteScrollProps<TValue, TError> {
+  children: (item: TValue) => ReactNode;
   /**
    *  useInfiniteQuery result data
    * */
@@ -34,14 +31,16 @@ export interface QueryInfiniteScrollProps<TValue, TError> {
  *      import { useInfiniteQuery } from "@tanstack/react-query";
  *      const query = useInfiniteQuery(
  *          ["list"],
- *           async ({ pageParam = 1 }) => await fetchList()  ...
+ *           async ({ pageParam = 1 }) => await fetchList()  ... ,
+ *          { getNextPageParam }
  *        );
  *
  *      // v3
  *      import { useInfiniteQuery } from "react-query";
  *      const query = useInfiniteQuery(
  *          "list",
- *           async ({ pageParam = 1 }) => await fetchList()  ...
+ *           async ({ pageParam = 1 }) => await fetchList()  ... ,
+ *           { getNextPageParam }
  *        );
  *
  *       import { QueryInfiniteScroll } from "react-query-infinite-scroll";
@@ -66,19 +65,20 @@ export const QueryInfiniteScroll = <TValue, TError>({
     hasNextPage,
     isFetchingNextPage,
     fetchNextPage,
+    isFetched,
   },
   error: errorBoundary,
   loading,
   children,
   observer,
-}: PropsWithChildren<QueryInfiniteScrollProps<TValue, TError>>) => {
+}: QueryInfiniteScrollProps<TValue, TError>) => {
   const { ref, inView } = useInView();
 
   useEffect(() => {
-    if (inView && !isFetchingNextPage) {
+    if (inView && !isFetchingNextPage && isFetched) {
       fetchNextPage();
     }
-  }, [inView, isFetchingNextPage]);
+  }, [inView, isFetchingNextPage, isFetched]);
 
   if (status === "loading") {
     return loading;
