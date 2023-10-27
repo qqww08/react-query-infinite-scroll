@@ -15,14 +15,16 @@ pnpm i react-query-infinite-scroll
      import { useInfiniteQuery } from "@tanstack/react-query";
      const query = useInfiniteQuery(
          ["list"],
-          async ({ pageParam = 1 }) => await fetchList()  ...
+          async ({ pageParam = 1 }) => await fetchList()  ... ,
+         { getNextPageParam } 
        );
 
      // v3
      import { useInfiniteQuery } from "react-query";
      const query = useInfiniteQuery(
          "list",
-          async ({ pageParam = 1 }) => await fetchList()  ...
+          async ({ pageParam = 1 }) => await fetchList()  ... ,
+         { getNextPageParam } 
        );
 
       import { QueryInfiniteScroll } from "react-query-infinite-scroll";
